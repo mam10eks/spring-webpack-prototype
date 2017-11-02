@@ -1,0 +1,17 @@
+p
+{
+	margin: 15px;
+}
+
+
+.modal-dialog
+{
+    margin: 5vh 10vw !important;
+	width: auto !important;
+}
+
+
+.main-header
+{
+	background-color: #DCDCDC;
+}

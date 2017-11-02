@@ -1,0 +1,7 @@
+**/.classpath
+**/.project
+**/.settings/**
+**/target/**
+**/etc/**
+**/node/**
+**/node_modules/**
