@@ -1,31 +1,19 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title th:text="${dynamicHeader}"></title>
-		<meta charset="UTF-8"/>
-		
-		<script src="/webjars/frontend/0.0.1-SNAPSHOT/app-bundle.js"></script>
-	</head>
-	<body>
-		<div class="container-fluid main-header">
-			<h1 class="text-center" th:text="${dynamicHeader}"></h1>
-			<br/>
-		</div>
-		<p>
-			This is a small demo project to evaluate the usage of the following libraries together:
-			Spring boot, webpack, NProgress and Chartjs.
-			The only thing that you could do is clicking the following button.
-			For each click, an ajax request is executed to the server, where the data of an random bar chart is created.
-			These data is rendered on the client.
-			
-		</p>
-		<div class="text-center">
-			<br/>
-			<a href="#" class="btn btn-info" role="button" 
-					th:onclick="'Application.loadChart(\'' + ${randomChartService.href} +'\'); return false;'">
-				Generate Random Bar Chart!
-			</a>
-			<br/>
-		</div>
-	</body>
-</html>
+<p>
+	This is a small demo project to evaluate the usage of the following libraries together:
+	Spring boot, webpack, NProgress and Chartjs.
+	The only thing that you could do is clicking the following button.
+	For each click, an ajax request is executed to the server, where the data of an random bar chart is created.
+	These data is rendered on the client.
+</p>
+
+<div class="text-center">
+	<br/>
+	<a th:href="${randomChartService.href}" class="btn btn-info" role="button" 
+			th:onclick="'Application.loadChart(\'' + ${randomChartService.href} +'\'); return false;'">
+		Generate Random Bar Chart!
+	</a>
+	<a th:href="${randomGreetingService.href}" class="btn btn-info">
+		Generate Random Greeting!
+	</a>
+	<br/>
+</div>

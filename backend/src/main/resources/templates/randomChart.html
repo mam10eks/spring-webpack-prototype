@@ -1,0 +1,15 @@
+<h1 class="text-center">Random Bar Chart</h1>
+
+<br/>
+<div style='width: auto;'>
+	<canvas id='chartCanvas'></canvas>
+</div>
+<br/>
+
+<script th:inline="javascript">
+/*<![CDATA[*/
+	var data = {'labels': [[${labels}]], 'datasets': [[${datasets}]]};
+	
+	Application.renderChartIntoCanvas("chartCanvas", data);
+/*]]>*/
+</script>

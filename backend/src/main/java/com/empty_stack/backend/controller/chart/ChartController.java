@@ -1,4 +1,4 @@
-package com.empty_stack.backend.chart;
+package com.empty_stack.backend.controller.chart;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -10,13 +10,11 @@ import java.util.stream.IntStream;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.empty_stack.backend.chart.dto.ChartData;
-import com.empty_stack.backend.chart.dto.ChartDataset;
+import com.empty_stack.backend.controller.chart.dto.ChartData;
+import com.empty_stack.backend.controller.chart.dto.ChartDataset;
 
 import lombok.Data;
-import lombok.SneakyThrows;
 import lombok.experimental.Accessors;
 
 @Controller
@@ -36,7 +34,7 @@ public class ChartController
 	private static final String LABEL = "# of Votes";
 	
 	@RequestMapping(method=RequestMethod.GET, path="/chart")
-	public @ResponseBody ChartData randomChart()
+	public Object randomChart()
 	{
 		List<MeasuringPoint> measuringPointsToReturn = measuringPointsInRandomOrder();
 		

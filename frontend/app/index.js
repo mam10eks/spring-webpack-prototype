@@ -40,7 +40,11 @@ function showChart(data) {
 			}
 		}});
 
-	let chart = new Chart(document.getElementById("chartCanvas").getContext('2d'), {
+	renderChartIntoCanvas("chartCanvas", data);
+}
+
+function renderChartIntoCanvas(canvasId, data) {
+	new Chart(document.getElementById(canvasId).getContext('2d'), {
 		type: "bar",
 		data: data,
 		options: BAR_CHART_OPTIONS
@@ -50,11 +54,13 @@ function showChart(data) {
 function loadChart(url) {
 	NProgress.start();
 
-	Ajax.get(url, {}, {})
+	Ajax.get(url, {}, {Accept: "application/json"})
 		.then(JSON.parse)
 		.then(r => {NProgress.done(); return r;})
 		.then(showChart)
 		.catch(e => console.log(e));
 }
 
-module.exports = { loadChart: loadChart};
+module.exports = {
+	loadChart: loadChart,
+	renderChartIntoCanvas : renderChartIntoCanvas};

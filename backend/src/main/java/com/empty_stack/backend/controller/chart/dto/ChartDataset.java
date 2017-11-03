@@ -1,4 +1,4 @@
-package com.empty_stack.backend.chart.dto;
+package com.empty_stack.backend.controller.chart.dto;
 
 import java.util.List;
 

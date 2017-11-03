@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Random Greeting</title>
+		<meta charset="UTF-8"/>
+		
+		<script th:src="${baseLocation.href} +'/webjars/frontend/0.0.1-SNAPSHOT/app-bundle.js'"></script>
+	</head>
+	<body>
+		
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" th:href="${baseLocation.href}">Demo Project</a>
+				</div>
+				<div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li th:each="link: ${menuLinks}">
+							<a th:href="${link.href}" th:text="${link.rel}"/>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	
+		<div class="container" style="padding-top: 50px;">
+			<div th:replace="${view}"></div>
+		</div>
+	</body>
+</html>
